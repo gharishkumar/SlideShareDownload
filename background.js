@@ -52,7 +52,7 @@ function imageToUri(url, iterator, callback) {
       canvas.width = base_image.width;
       canvas.height = base_image.height;
       ctx.drawImage(base_image, 0, 0);
-      callback(canvas.toDataURL('image/png'), iterator);
+      callback(canvas.toDataURL('image/jpeg'), iterator);
       canvas.remove();
   }
 }

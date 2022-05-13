@@ -188,7 +188,7 @@ chrome.runtime.onMessage.addListener(function backgroundListener(request, sender
    for(var j = 0; j < slideImgsData.length; j++){
       if(j!=0)
       doc.addPage();
-      doc.addImage(slideImgsData[j], 'PNG', 0, 0, slideWidth, slideHeight);
+      doc.addImage(slideImgsData[j], 'JPEG', 0, 0, slideWidth, slideHeight);
    }
    doc.save(title + '.pdf');
    let pptx = new PptxGenJS();
