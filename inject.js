@@ -13,18 +13,8 @@ for(var i = 0; i < slideImgs.length; i++){
    // slideImgsSrc[i] = slideImgs[i].src;
    if(i == slideImgs.length-1){
       chrome.runtime.sendMessage({slides: slideImgsSrc});
-      console.log(slideImgsSrc);
    }
 }
 
 
-chrome.runtime.onMessage.addListener(function backgroundListener(request, sender, sendResponse) {
-   var doc = slideWidth>slideHeight?new jsPDF('l', 'pt', [slideWidth, slideHeight]):new jsPDF('p', 'pt', [slideWidth, slideHeight]);
-   var slideImgsData = request.response;
-   for(var j = 0; j < slideImgsData.length; j++){
-      if(j!=0)
-      doc.addPage();
-      doc.addImage(slideImgsData[j], 'PNG', 0, 0, slideWidth, slideHeight);
-   }
-   doc.save(title + '.pdf');
-});
+

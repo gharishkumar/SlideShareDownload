@@ -8,7 +8,7 @@ chrome.browserAction.onClicked.addListener(function(activeTab){
 chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'complete' && tab.active) {
     chrome.tabs.executeScript(tab.ib, {
-      file: 'jspdf.min.js'
+      file: 'lib.js'
     });
   }
 });
@@ -22,11 +22,15 @@ function handleMessage(request) {
       if(slideImgsData.length == slides.length){
         for(var j=0; j < slideImgsData.length; j++){
           console.log('checking');
-          if(slideImgsData[j]=='undefined'){
+          console.log(slideImgsData[j]);
+          if(slideImgsData[j]){
+            console.log('ok');
+          } else {
             console.log('break');
             break;
           }
         }
+        console.log('j ' + j);
         if(j==slideImgsData.length){
           console.log(slideImgsData);
           chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
