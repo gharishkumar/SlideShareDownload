@@ -190,7 +190,7 @@ chrome.runtime.onMessage.addListener(function backgroundListener(request, sender
       doc.addPage();
       doc.addImage(slideImgsData[j], 'JPEG', 0, 0, slideWidth, slideHeight);
    }
-   doc.save(title + '.pdf');
+   // doc.save(title + '.pdf');
    let pptx = new PptxGenJS();
    pptx.defineLayout({ name:'current', width:slideWidth/96, height:slideHeight/96 });
    pptx.layout = 'current';
